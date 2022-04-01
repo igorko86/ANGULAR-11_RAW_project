@@ -1,0 +1,58 @@
+<button (click)="increment()">increment</button>
+<button (click)="decrement()">decrement</button>
+<div>{{initial}}</div>
+<hr>
+<br>
+<button (click)="consoleCounter(initial)">ConsoleCounter</button>
+<hr>
+<br>
+<button (click)="eventObject($event)">Event object</button>
+<hr>
+<br>
+<button (click)="showRef(p, div)">Show REFERENCE</button>
+<p #p>P tag</p>
+<div #div>DIV tag</div>
+<br>
+<p>RESULT: {{ref}}</p>
+<hr>
+<br>
+<input type="text" #input (keydown.enter)="pressEnter(input.value)">
+<p>Press enter: {{ref}}</p>
+
+<hr>
+<br>
+<button (click)="changeStyles()">CLICK</button>
+<div class="div-container">1 DIV</div>
+<div class="div-container" [class.active]="flag">2 DIV</div>
+<hr>
+<br>
+<label>
+  <input type="checkbox" (change)="changeFlag()">
+<div class="div-container">Checkbox is {{toggle}}</div>
+<div *ngIf="toggle" class="div-container">SHow DIV {{toggle}}</div>
+</label>
+<hr>
+<br>
+<ul>
+  <li *ngFor="let val of list; let i = index; let ev = even; let od = odd; let isFirst = first; let isLast = last" [ngStyle]="{
+  backgroundColor: ev? 'skyBlue' : 'white'
+  }">
+    Value: {{val}}
+    Index: {{i}}
+    Even element: {{ev}}
+    Odd element: {{od}}
+    First element: {{isFirst}}
+    Last element: {{isLast}}
+  </li>
+</ul>
+
+<p appMyColor>Directive: MyColor</p>
+<hr>
+<br>
+<div appMyEventDirective>Hello World</div>
+<div appMyEventDirective>Hello World</div>
+<div appMyEventDirective>Hello World</div>
+<hr>
+<br>
+<div appMyColorChange="red">Hello World</div>
+<!--<div [appMyColorChange]="currentColor">Hello World</div>-->
